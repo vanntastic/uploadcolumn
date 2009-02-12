@@ -63,7 +63,7 @@ module UploadColumn
   
     # weave in the magic column methods
     include UploadColumn::MagicColumns
-
+    
     module ClassMethods
     
       # handle the +attr+ attribute as an "upload-column" field, generating additional methods as explained

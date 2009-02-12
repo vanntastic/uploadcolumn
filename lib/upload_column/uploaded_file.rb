@@ -148,6 +148,9 @@ module UploadColumn
     # returns the full path of the file.
     def path; super; end
     
+    # method to detect whether or not the file exists
+    def exists?; File.exists?(path); end
+    
     # returns the directory where the file is currently stored.
     def dir
       File.dirname(self.path)
