@@ -1,0 +1,47 @@
+/*file type icons for usage with upload_column helpers*/
+.pdf,
+.word,
+.doc,
+.txt,
+.xls,
+.image,
+.misc,
+.jpeg,
+.jpg,
+.gif,
+.png{
+	font: 14px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+	font-weight:medium;
+  margin: 5px;
+  padding: 5px 0 0 35px;
+  display:block;
+  height:31px;
+  min-height:31px;
+  float: left;
+  background-repeat:no-repeat;
+}
+
+.pdf:hover,
+.word:hover,
+.doc:hover,
+.txt:hover,
+.xls:hover,
+.image:hover,
+.misc:hover,
+.jpeg:hover,
+.jpg:hover,
+.gif:hover,
+.png:hover{
+	background-color:transparent;
+	color:#ff0000;
+}
+
+.pdf{background-image:url(../../images/uc_icons/pdf-icon.gif);}
+.word,.doc{background-image:url(../../images/uc_icons/word-icon.gif);}
+.txt{background-image:url(../../images/uc_icons/txt-icon.gif);}
+.xls{background-image:url(../../images/uc_icons/xls-icon.gif);}
+
+.image,.jpeg,.jpg,.gif,.png{
+  background-image:url(../../images/uc_icons/image-icon.gif);
+}
+.misc{background-image:url(../../images/uc_icons/misc-icon.gif);}

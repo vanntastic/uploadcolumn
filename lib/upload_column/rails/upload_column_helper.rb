@@ -32,6 +32,10 @@ module UploadColumn::UploadColumnHelper
   
     form_for(*args, &block)
   end
+  
+  # attaches the files necessary for using the upload_column icons
+  # simply add <%= upload_column_styles %> to your layout file
+  def upload_column_styles; stylesheet_link_tag "uc_icons/upload_column"; end
 
 end
 

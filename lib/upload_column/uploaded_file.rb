@@ -207,6 +207,39 @@ module UploadColumn
       end
     end
     
+    # TODO : needs to be specced and add more file icons to the library
+    # this will return the anchor link tied with the css class for a nice looking link
+    # to display the related file icon  with a link to the file
+    # run rake upload_column:install_all to install all the icons and css needed for this 
+    # helper
+    # INSTALLATION :
+    # 1. rake upload_column:install_all
+    # 2. add <%= upload_column_styles %> to your layout in the head of the document
+    # USAGE : 
+    #   <%= user.picture.link %> # outputs the link with the with the filename as the text
+    #   <%= user.picture.link "Download" %> outputs the link with the "Download" text for the 
+    #       link
+    #   <%= user.picture.link "Download", options %> 
+    #       outputs the link with the "Download" text for the link and the html attributes
+    #       passed in via options
+    
+    def link(text=nil, options={})
+      text ||= filename
+      img_icons = %w(jpg gif jpeg png tiff)
+      file_icons = %w(pdf txt doc xls)
+      if img_icons.include?(self.extension) || file_icons.include?(self.extension)
+        link_klass = self.extension
+      else
+        link_klass = "misc"
+      end
+      options[:title] ||= "Download #{self.filename}"
+      options[:class] = options[:class].nil? ? link_klass : "#{options[:class]} #{link_klass}"
+      html_attrs = ""
+      options.each_key { |o| html_attrs << " #{o.to_s}='#{options[o]}'" }
+      
+      link = "<a href='#{url}' #{html_attrs}>#{text}</a>"
+    end
+    
     private
     
     def copy_to_version(version)

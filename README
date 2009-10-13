@@ -142,6 +142,33 @@ If your uploaded file is an image you would most likely want to display it in yo
     <%= link_to "Guitar Tablature", @song.tab.url %>
     
     <%= image_tag @user.picture.url %>
+    
+Icon based links (experimental --meaning it's not tested)
+
+If you want an icon to accompany your upload_column file links, here's how it works:
+
+1. install the icon files and stylesheets:
+
+    # run:
+    rake upload_column:install_all
+
+2. add this to your layout file:
+
+    <%= upload_column_styles %>
+    
+3. Then use this anywhere:
+    
+    # assuming @attachment is the instance of your model
+    <%= @attachment.file.link %>
+
+link will automatically detect the file type and display the proper icon, here are the following file types that are supported:
+
+* jpg, gif, png, tiff
+* doc
+* pdf
+* xls
+* txt
+* any other file format will get a generic file icon, I will add more as I move forward
 
 == Magic Columns
 
